@@ -1,0 +1,19 @@
+{
+  "name": "news-agent",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/agent.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "latest",
+    "nodemailer": "^6.9.16",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/nodemailer": "^6.4.17",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
