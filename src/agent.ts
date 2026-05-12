@@ -1,5 +1,17 @@
-import { query } from "@anthropic-ai/claude-agent-sdk";
+declare module "@anthropic-ai/sdk" {
+  export function query(request: any): AsyncIterable<any>;
+}
+
+declare module "nodemailer" {
+  const content: any;
+  export default content;
+}
+
+// @ts-ignore: no local type declarations available for this package
+import { query } from "@anthropic-ai/sdk";
+// @ts-ignore
 import nodemailer from "nodemailer";
+import process from "process";
 
 // KST 기준 오늘 날짜
 const TODAY = new Date().toLocaleDateString("ko-KR", {
@@ -18,9 +30,9 @@ WebSearch 도구로 다음 쿼리를 사용해 검색:
 - 가십/연예 제외, 정치·국제·경제·과학 위주
 - 상위 5개 기사 URL 선정
 
-## 2단계: 조선일보 뉴스 검색
+## 2단계: 뉴욕타임즈 뉴스 검색
 WebSearch 도구로 다음 쿼리를 사용해 검색:
-- "site:chosun.com 오늘"
+- "site:nytimes.com ${TODAY}"
 - 정치·경제·사회·국제 위주
 - 상위 5개 기사 URL 선정
 
@@ -49,7 +61,7 @@ WebSearch 도구로 다음 쿼리를 사용해 검색:
     <!-- 5개 반복 -->
   </ol>
 
-  <h3 style="color: #003a70;">🇰🇷 조선일보 Top 5</h3>
+  <h3 style="color: #003a70;">🇰🇷 뉴욕타임즈 Top 5</h3>
   <ol>
     <li style="margin-bottom: 16px;">
       <a href="기사URL" style="color: #0066cc; text-decoration: none;">
