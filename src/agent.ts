@@ -8,7 +8,7 @@ declare module "nodemailer" {
 }
 
 // @ts-ignore: no local type declarations available for this package
-import { query } from "@anthropic-ai/sdk";
+import { query } from "@anthropic-ai/claude-agent-sdk";
 // @ts-ignore
 import nodemailer from "nodemailer";
 import process from "process";
